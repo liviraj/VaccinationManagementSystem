@@ -98,7 +98,7 @@ h1 {
 				<div id="errname">
 					<span style="color: red" id="sname"></span>
 				</div>
-				<input id="dob" class="form-control" type="date" path="dob"
+				<input id="dob" class="form-control" type="date" path="dob" value="${details.dob}"
 					class="date" name="dob" pattern="dd-MM-yyyy" /> <br> <br>
 				<br>
 				<label>Gender<span style="color: red">*</span></label>

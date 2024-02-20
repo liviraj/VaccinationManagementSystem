@@ -132,7 +132,7 @@ public class BabyController extends HttpServlet {
 				String gender = request.getParameter("gender");
 				String fatherName = request.getParameter("fatherName");
 
-				SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				java.util.Date dobReq = null;
 				try {
 					dobReq = dateFormat.parse(request.getParameter("dob"));
@@ -150,7 +150,7 @@ public class BabyController extends HttpServlet {
 				babyBeen.setGender(gender);
 				babyBeen.setFatherName(fatherName);
 				babyBeen.setMotherName(motherName);
-				babyBeen.setFatherName(fatherName);
+				babyBeen.setPlaceOfBirth(placeOfBirth);;
 
 				String result = babyService.nameCheck(name);
 				arrayList.add(babyBeen);
@@ -199,7 +199,7 @@ public class BabyController extends HttpServlet {
 				String gender = request.getParameter("gender");
 				String fatherName = request.getParameter("fatherName");
 
-				SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				java.util.Date dobReq = null;
 				try {
 					dobReq = dateFormat.parse(request.getParameter("dob"));
