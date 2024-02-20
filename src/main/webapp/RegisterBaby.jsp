@@ -95,7 +95,6 @@ h1 {
 						value="${details.name }" placeholder="Enter item name"> <br>
 				</div>
 				<label>Date of Birth<span style="color: red">*</span></label><br>
-				<span style="color: red">${msg}</span>
 				<div id="errname">
 					<span style="color: red" id="sname"></span>
 				</div>
@@ -116,7 +115,6 @@ h1 {
 				</div>
 				<div>
 					<label>Father Name<span style="color: red">*</span></label><br>
-					<span style="color: red">${msg}</span>
 					<div id="errname">
 						<span style="color: red" id="fname"></span>
 					</div>
@@ -126,7 +124,6 @@ h1 {
 				
 				<div>
 					<label>Mother Name<span style="color: red">*</span></label><br>
-					<span style="color: red">${msg}</span>
 					<div id="errname">
 						<span style="color: red" id="mname"></span>
 					</div>
@@ -136,7 +133,6 @@ h1 {
 				
 				<div>
 					<label>Place Of Birth<span style="color: red">*</span></label><br>
-					<span style="color: red">${msg}</span>
 					<div id="errname">
 						<span style="color: red" id="pofBirth"></span>
 					</div>
