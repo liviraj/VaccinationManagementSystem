@@ -21,12 +21,10 @@ h1 {
 	if (val1 == '' || val1 == 0) {
 		$(document).ready(function() {
 			$('#sel1').val("---select---");
-			$('#sel2').val("---select---");
 		});
 	} else {
 		$(document).ready(function() {
-			$('#sel1').val('${details.metrixType}');
-			$('#sel2').val('${details.itemType}');
+			$('#sel1').val('${details.gender}');
 		});
 	}
 </script>
@@ -148,7 +146,7 @@ h1 {
 				
 				<div class="col-xs-2">
 					<input class="btn btn-info" type="submit" name="submit"
-						value="${name}" onclick="return validate()"></input>
+						value="${name}"></input>
 				</div>
 				<button class="btn btn-info" type="reset"
 					style="position: relative; left: 40px">Reset</button>

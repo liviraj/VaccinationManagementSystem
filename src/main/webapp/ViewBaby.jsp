@@ -71,7 +71,7 @@ h1 {
 						<td><c:out value="${detail.placeOfBirth}"></c:out></td>
 						<td><a
 							href="BabyController?action=update&id=<c:out value="${detail.babyId}"/>"><button>Update</button></a>
-							<a><button onclick="msg1(${detail.idgroocery})">Delete</button></a></td>
+							<a><button onclick="msg1(${detail.babyId})">Delete</button></a></td>
 					</tr>
 				</c:forEach>
 			</table>

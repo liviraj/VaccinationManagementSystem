@@ -25,7 +25,7 @@ public class LoginHomeController extends HttpServlet {
 	private static final String homemain = "homemain.jsp";
 	private static final String login = "login.jsp";
 	private static final String home = "home.jsp";
-	private static final String VIEW_PAGE = "ViewBaby.js̥";
+	private static final String VIEW_PAGE = "ViewBaby.jsp";
 
 	RequestDispatcher requestDispatcher = null;
 

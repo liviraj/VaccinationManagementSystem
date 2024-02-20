@@ -9,9 +9,10 @@ import java.sql.SQLException;
 public class DbConnection {
 	static Connection connection=null;
 	static String className="com.mysql.jdbc.Driver";
-	static String url="jdbc:mysql://localhost:3306/gms";
+	static String url="jdbc:mysql://localhost:3306/vms";
 	static String root="root";
-	static String password="Javaraj@007";
+	// static String password="Javaraj@007";
+	static String password="Historaj@007";
 
 	public static Connection getConnection() throws ClassNotFoundException , SQLException{
 		try{		
