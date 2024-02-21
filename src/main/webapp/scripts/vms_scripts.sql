@@ -21,3 +21,17 @@ CREATE TABLE `vms`.`babyDetails` (
   PRIMARY KEY (`babyId`));
 
 desc babydetails;
+
+CREATE TABLE `vms`.`booking` (
+  `bookingId` INT NOT NULL AUTO_INCREMENT,
+  `date` DATE NULL,
+  `doctorName` VARCHAR(255) NULL,
+  `vaccinationType` VARCHAR(255) NULL,
+  `babyId` INT NULL,
+  PRIMARY KEY (`bookingId`),
+  INDEX `baby_booking_fk_idx` (`babyId` ASC) VISIBLE,
+  CONSTRAINT `baby_booking_fk`
+    FOREIGN KEY (`babyId`)
+    REFERENCES `vms`.`babydetails` (`babyId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);

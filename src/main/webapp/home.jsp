@@ -11,7 +11,7 @@
 
 <style type="text/css">																																																																																																																																																																																																																																																																																																																																																																																																																																						
 h1{
-		background-color: gray;
+		background-color: floralwhite;
 	}
 </style>
 </head>

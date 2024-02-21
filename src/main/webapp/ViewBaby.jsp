@@ -8,7 +8,7 @@
 <title>view</title>
 <style type="text/css">
 h1 {
-	background-color: gray;
+	background-color: floralwhite;
 }
 </style>
 <link rel="stylesheet" href="bootstrap.min.css">
@@ -71,7 +71,11 @@ h1 {
 						<td><c:out value="${detail.placeOfBirth}"></c:out></td>
 						<td><a
 							href="BabyController?action=update&id=<c:out value="${detail.babyId}"/>"><button>Update</button></a>
-							<a><button onclick="msg1(${detail.babyId})">Delete</button></a></td>
+							<a><button onclick="msg1(${detail.babyId})">Delete</button></a>
+							<a
+							href="BookingController?action=booking&id=<c:out value="${detail.babyId}"/>"><button>Book Appointment</button></a>
+							<a>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -7,7 +7,7 @@
 <title>login</title>
 <style type="text/css">
 h1{
-		background-color: gray;
+		background-color: floralwhite;
 	}
 	form{
 		align:"center";
@@ -23,14 +23,16 @@ h1{
 	
 	<center><h2>Login</h2>
 	<center><span style="color: red">${msg}</span></center>
-	<div style="padding-left:539px;padding-right: 539px;">
-			<label>UserId</label>
-			<input class="form-control" type="text" name="uname" placeholder="enter user name" required autofocus></input>
-			<br><label>Password</label>
-			<input class="form-control" type="password" name="psw" placeholder="enter password" required></input>
-			<br><input type="submit" value="submit" name="submit"></input>
-			<a href="LoginHomeController?action=cancel"><button>Cancel</button></a>
-	</div>
+	<div style="padding-left: 539px; padding-right: 539px;">
+    <label style="display: inline-block; width: 100px; margin-right: 10px;">UserId</label>
+    <input class="form-control" type="text" name="uname" placeholder="enter user name" required autofocus></input>
+    <br>
+    <label style="display: inline-block; width: 100px; margin-right: 10px;">Password</label>
+    <input class="form-control" type="password" name="psw" placeholder="enter password" required></input>
+    <br>
+    <input type="submit" value="submit" name="submit"></input>
+    <a href="LoginHomeController?action=cancel"><button>Cancel</button></a>
+</div>
 	</center>
 </form>
 </body>

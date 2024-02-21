@@ -13,7 +13,7 @@
 <title>baby registration</title>
 <style type="text/css">
 h1 {
-	background-color: gray;
+	background-color: floralwhite;
 }
 </style>
 <script>
@@ -28,51 +28,6 @@ h1 {
 		});
 	}
 </script>
-<script>
-	/* function validate()	
-	{
-	  var name=$("#name").val();
-	  var team=$("#sel1").val();
-	  var place=$("#sel2").val();
-	  var salary=$("#salary").val();
-	  
-	   if(name==null || name=='')
-		  {
-		   	$("#sname").html("Name Requried");
-		  	$("#errname").show();
-		  	$("#errteam").hide();
-		  	$("#errplace").hide();
-		  	$("#errsalary").hide();
-			return false;
-		  	
-		  }
-	  else if (team==null || team=='') {
-		  $("#steam").html("Team Requried");
-		  	$("#errname").hide();
-		  	$("#errteam").show();
-		  	$("#errplace").hide();
-		  	$("#errsalary").hide();
-		  	return false;
-	}
-	  else if(place==null || place==''){
-		  $("#splace").html("place Requried");
-		  $("#errname").hide();
-		  	$("#errteam").hide();
-		  	$("#errplace").show();
-		  	$("#errsalary").hide();
-		  	return false;
-	  }
-	  else if(salary==null || salary==''){
-		  $("#ssalary").html("salary Requried");
-		  $("#errname").hide();
-		  	$("#errteam").hide();
-		  	$("#errplace").hide();
-		  	$("#errsalary").show();
-		  	return false;
-	  }
-	   return true;
-	} */
-</script>
 </head>
 
 <body>
@@ -82,7 +37,7 @@ h1 {
 		</center>
 		<div class="container">
 			<input type="hidden" name="id" value="${details.babyId}">
-			<h2>Grocery Registration</h2>
+			<h2>Baby Registration</h2>
 
 			<div class="col-xs-4">
 				<div>

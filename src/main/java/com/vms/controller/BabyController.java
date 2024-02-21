@@ -162,14 +162,14 @@ public class BabyController extends HttpServlet {
 				} else {
 					int status = babyService.insert(babyBeen);
 					if (status > 0) {
-						ArrayList<BabyBeen> employeBeens = new ArrayList<BabyBeen>();
-						BabyService employeService2 = new BabyService();
+						ArrayList<BabyBeen> babyBeens = new ArrayList<BabyBeen>();
+						BabyService babyService2 = new BabyService();
 						try {
-							employeBeens = employeService2.get2();
+							babyBeens = babyService2.get2();
 						} catch (ClassNotFoundException e) {
 							e.printStackTrace();
 						}
-						request.setAttribute("details", employeBeens);
+						request.setAttribute("details", babyBeens);
 						requestDispatcher = request.getRequestDispatcher(VIEW_BABY);
 					}
 				}
@@ -199,7 +199,7 @@ public class BabyController extends HttpServlet {
 				String gender = request.getParameter("gender");
 				String fatherName = request.getParameter("fatherName");
 
-				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd̥");
 				java.util.Date dobReq = null;
 				try {
 					dobReq = dateFormat.parse(request.getParameter("dob"));
