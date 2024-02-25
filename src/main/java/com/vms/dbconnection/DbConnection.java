@@ -12,7 +12,7 @@ public class DbConnection {
 	static String url="jdbc:mysql://localhost:3306/vms";
 	static String root="root";
 	// static String password="Javaraj@007";
-	static String password="Historaj@007";
+	static String password="poongodi";
 
 	public static Connection getConnection() throws ClassNotFoundException , SQLException{
 		try{		
