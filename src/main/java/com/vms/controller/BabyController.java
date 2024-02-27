@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpSession;
 
 import com.vms.model.BabyBeen;
 import com.vms.service.BabyService;
+import com.vms.util.MessageNotification;
 
 @WebServlet("/BabyController")
 public class BabyController extends HttpServlet {
@@ -98,6 +101,31 @@ public class BabyController extends HttpServlet {
 			} else {
 				requestDispatcher = request.getRequestDispatcher(login);
 			}
+		} else if (action.equals("sendAlert")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			BabyService babyService = new BabyService();
+			BabyBeen babyDetails = null;
+			try {
+				babyDetails = babyService.getById(id);
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			int babyAge = calculateAge(babyDetails.getDob());
+			
+			String message = "Your baby: \"" + babyDetails.getName() +"\" getting age: " + babyAge + " ,So please visit hospital for vaccination.";
+			MessageNotification.sendNotification(message);
+			
+			ArrayList<BabyBeen> babyBeens = new ArrayList<BabyBeen>();
+			try {
+				babyBeens = babyService.getAll();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("msg", "Notification send successfully for registerd mobile number!!!");
+			request.setAttribute("details", babyBeens);
+			navigation = VIEW_BABY;
 		} else {
 			if (check != null) {
 				ArrayList<BabyBeen> babyBeens = new ArrayList<BabyBeen>();
@@ -144,19 +172,21 @@ public class BabyController extends HttpServlet {
 
 				String motherName = request.getParameter("motherName");
 				String placeOfBirth = request.getParameter("placeOfBirth");
+				String mobileNo = request.getParameter("mobileNumber");
 
 				babyBeen.setName(name);
 				babyBeen.setDob(dob);
 				babyBeen.setGender(gender);
 				babyBeen.setFatherName(fatherName);
 				babyBeen.setMotherName(motherName);
-				babyBeen.setPlaceOfBirth(placeOfBirth);;
+				babyBeen.setPlaceOfBirth(placeOfBirth);
+				babyBeen.setMobileNumber(mobileNo);
 
-				String result = babyService.nameCheck(name);
+				String result = babyService.nameCheck(mobileNo);
 				arrayList.add(babyBeen);
 				if (result.equals("success")) {
 					request.setAttribute("name", "save");
-					request.setAttribute("msg", "Name Already Exist");
+					request.setAttribute("msg", "Mobile No Already Exist");
 					request.setAttribute("details", babyBeen);
 					requestDispatcher = request.getRequestDispatcher(REGISTER_BABY);
 				} else {
@@ -211,6 +241,7 @@ public class BabyController extends HttpServlet {
 
 				String motherName = request.getParameter("motherName");
 				String placeOfBirth = request.getParameter("placeOfBirth");
+				String mobileNo = request.getParameter("mobileNumber");
 
 				babyBeen.setName(name);
 				babyBeen.setDob(dob);
@@ -218,6 +249,7 @@ public class BabyController extends HttpServlet {
 				babyBeen.setFatherName(fatherName);
 				babyBeen.setMotherName(motherName);
 				babyBeen.setFatherName(fatherName);
+				babyBeen.setMobileNumber(mobileNo);
 				try {
 					int status = babyService.update(babyBeen);
 				} catch (ClassNotFoundException e) {
@@ -238,4 +270,11 @@ public class BabyController extends HttpServlet {
 		}
 		requestDispatcher.forward(request, response);
 	}
+	
+	private static int calculateAge(Date dob) {
+        LocalDate dobLocalDate = dob.toLocalDate();
+        LocalDate currentDate = LocalDate.now();
+        Period period = Period.between(dobLocalDate, currentDate);
+        return period.getYears();
+    }
 }

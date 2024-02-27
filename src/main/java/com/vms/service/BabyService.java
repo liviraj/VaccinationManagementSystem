@@ -31,6 +31,7 @@ public class BabyService {
 				model.setFatherName(rs.getString("fatherName"));
 				model.setMotherName(rs.getString("motherName"));
 				model.setPlaceOfBirth(rs.getString("placeOfBirth"));
+				model.setMobileNumber(rs.getString("mobileNumber"));
 				
 				groceryList.add(model);
 			}
@@ -55,6 +56,7 @@ public class BabyService {
 				model.setFatherName(rs.getString("fatherName"));
 				model.setMotherName(rs.getString("motherName"));
 				model.setPlaceOfBirth(rs.getString("placeOfBirth"));
+				model.setMobileNumber(rs.getString("mobileNumber"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,7 +89,7 @@ public class BabyService {
 				model.setFatherName(rs.getString("fatherName"));
 				model.setMotherName(rs.getString("motherName"));
 				model.setPlaceOfBirth(rs.getString("placeOfBirth"));
-				
+				model.setMobileNumber(rs.getString("mobileNumber"));
 				list.add(model);
 			}
 		} catch (SQLException e) {
@@ -101,13 +103,14 @@ public class BabyService {
 		try {
 			con = DbConnection.getConnection();
 			PreparedStatement ps = (PreparedStatement) con
-					.prepareStatement("insert into babyDetails(name,dob,gender,fatherName,motherName,placeOfBirth) values(?,?,?,?,?,?)");
+					.prepareStatement("insert into babyDetails(name,dob,gender,fatherName,motherName,placeOfBirth, mobileNumber) values(?,?,?,?,?,?,?)");
 			ps.setString(1, been.getName());
 			ps.setDate(2, been.getDob());
 			ps.setString(3, been.getGender());
 			ps.setString(4, been.getFatherName());
 			ps.setString(5, been.getMotherName());
 			ps.setString(6, been.getPlaceOfBirth());
+			ps.setString(7, been.getMobileNumber());
 			status = ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -120,13 +123,14 @@ public class BabyService {
 		try {
 			con = DbConnection.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(
-					"update babyDetails set name=?,dob=?,gender=?,fatherName=?,motherName=?,placeOfBirth=?  where babyId='" + been.getBabyId() + "'");
+					"update babyDetails set name=?,dob=?,gender=?,fatherName=?,motherName=?,placeOfBirth=?, mobileNumber=?  where babyId='" + been.getBabyId() + "'");
 			ps.setString(1, been.getName());
 			ps.setDate(2, been.getDob());
 			ps.setString(3, been.getGender());
 			ps.setString(4, been.getFatherName());
 			ps.setString(5, been.getMotherName());
 			ps.setString(6, been.getPlaceOfBirth());
+			ps.setString(7, been.getMobileNumber());
 			status = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -134,14 +138,14 @@ public class BabyService {
 		return status;
 	}
 
-	public String nameCheck(String name) {
+	public String nameCheck(String check) {
 		Connection con = null;
 		Statement st = null;
 		ResultSet rs = null;
 		try {
 			con = DbConnection.getConnection();
 			st = (Statement) con.createStatement();
-			rs = st.executeQuery("select name from babyDetails where  name = '" + name + "'");
+			rs = st.executeQuery("select mobileNumber from babyDetails where  mobileNumber = '" + check + "'");
 			if (rs.next()) {
 				return "success";
 			}

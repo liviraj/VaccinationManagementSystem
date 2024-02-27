@@ -10,6 +10,7 @@ public class BabyBeen {
 	private String fatherName;
 	private String motherName;
 	private String placeOfBirth;
+	private String mobileNumber;
 
 	public int getBabyId() {
 		return babyId;
@@ -67,10 +68,19 @@ public class BabyBeen {
 		this.placeOfBirth = placeOfBirth;
 	}
 
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "BabyBeen [babyId=" + babyId + ", name=" + name + ", dob=" + dob + ", gender=" + gender + ", fatherName="
-				+ fatherName + ", motherName=" + motherName + ", placeOfBirth=" + placeOfBirth + "]";
+				+ fatherName + ", motherName=" + motherName + ", placeOfBirth=" + placeOfBirth + ", mobileNumber="
+				+ mobileNumber + "]";
 	}
 
 }

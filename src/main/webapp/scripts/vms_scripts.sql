@@ -20,6 +20,9 @@ CREATE TABLE `vms`.`babyDetails` (
   `placeOfBirth` varchar(255) NULL,
   PRIMARY KEY (`babyId`));
 
+  ALTER TABLE `vms`.`babydetails` 
+ADD COLUMN `mobileNumber` VARCHAR(45) NULL AFTER `placeOfBirth`;
+
 desc babydetails;
 
 CREATE TABLE `vms`.`booking` (

@@ -54,7 +54,7 @@ h1 {
 					<span style="color: red" id="sname"></span>
 				</div>
 				<input id="dob" class="form-control" type="date" path="dob" value="${details.dob}"
-					class="date" name="dob" pattern="dd-MM-yyyy" /> <br> <br>
+					class="date" name="dob" pattern="dd-MM-yyyy" /> 
 				<br>
 				<label>Gender<span style="color: red">*</span></label>
 				<div class="form-group">
@@ -93,6 +93,12 @@ h1 {
 					</div>
 					<input id="placeOfBirth" class="form-control" type="text" name="placeOfBirth"
 						value="${details.placeOfBirth}" placeholder="Enter place of birth"> <br>
+				</div>
+				
+				<div>
+					<label>Mobile/Contact No<span style="color: red">*</span></label><br>
+					<input id="mobileNumber" class="form-control" type="text" name="mobileNumber"
+						value="${details.mobileNumber}" placeholder="Enter mobile/contact no"> <br>
 				</div>
 				
 				<div class="col-xs-2">

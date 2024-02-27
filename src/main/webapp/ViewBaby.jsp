@@ -74,7 +74,7 @@ h1 {
 							<a><button onclick="msg1(${detail.babyId})">Delete</button></a>
 							<a
 							href="BookingController?action=booking&id=<c:out value="${detail.babyId}"/>"><button>Book Appointment</button></a>
-							<a>
+							<a href="BabyController?action=sendAlert&id=<c:out value="${detail.babyId}"/>"><button>Send Alert</button></a>
 						</td>
 					</tr>
 				</c:forEach>

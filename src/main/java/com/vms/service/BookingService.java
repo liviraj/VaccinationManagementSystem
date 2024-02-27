@@ -5,10 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.vms.dbconnection.DbConnection;
 import com.vms.model.BookingModel;
+import com.vms.util.MessageNotification;
 
 public class BookingService {
 	Connection con = null;
@@ -26,6 +28,11 @@ public class BookingService {
 			ps.setString(3, been.getVaccinationType());
 			ps.setInt(4, been.getBabyId());
 			status = ps.executeUpdate();
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			String date = dateFormat.format(been.getDate());
+			String message = "Booked Dr oppintment on " + date + ". Please be avilabe on the date. The baby vaccination type is : " + been.getVaccinationType();
+			MessageNotification.sendNotification(message);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
